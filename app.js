@@ -72,7 +72,7 @@ var UIController =  (function()   {
         inputValue: '.add__value',  
         inputBtn: '.add__btn',
         incomeContainer: '.income__list',
-        expensesContainer: 'expenses__list' 
+        expensesContainer: '.expenses__list' 
     }
     
     
@@ -100,13 +100,17 @@ var UIController =  (function()   {
           }
         
         //Replace the placeholder text with some actual data
-          newHtml = html.replace('%id', obj.id);
-          newHtml = newHtml.replace('%description', obj.description);
-          newHtml = newHtml.replace('%value', obj.value);
+          newHtml = html.replace('%id%', obj.id);
+          newHtml = newHtml.replace('%description%', obj.description);
+          newHtml = newHtml.replace('%value%', obj.value);
         
           //Insert html into the DOM  
-          document.querySelector(element).insertAdjacentElement('beforeend', newHtml);
+          document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
 
+    },
+
+    clearFields: function(){
+            var fields
     },
 
     getDomStrings: function() {
